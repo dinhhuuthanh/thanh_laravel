@@ -13,7 +13,20 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+//        //Cach 1
+//        $this->app->singleton(
+//            \App\Repositories\User\UserRepositoryInterface::class,
+//            \App\Repositories\User\UserRepository::class
+//        );
+
+        //Cach 2
+        $repositories = [
+            'User\UserRepositoryInterface' => 'User\UserRepository',
+        ];
+
+        foreach ($repositories as $key => $val) {
+            $this->app->bind("App\\Repositories\\$key", "App\\Repositories\\$val");
+        }
     }
 
     /**
