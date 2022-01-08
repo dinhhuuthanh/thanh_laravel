@@ -15,8 +15,9 @@ class HomeController extends Controller
 
     public function index()
     {
-        $user = $this->user->getUserLogin();
-        dd($user);
+        $allUser = $this->user->getAll();
+        $userAdmin = $this->user->getUserLogin();
+        dd($allUser, $userAdmin);
         return view('welcome');
     }
 }
