@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use App\Repositories\User\UserRepositoryInterface;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -15,9 +16,6 @@ class HomeController extends Controller
 
     public function index()
     {
-        $allUser = $this->user->getAll();
-        $userAdmin = $this->user->getUserLogin();
-        dd($allUser, $userAdmin);
         return view('welcome');
     }
 }
