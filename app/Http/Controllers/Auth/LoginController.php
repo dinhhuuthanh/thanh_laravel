@@ -15,9 +15,9 @@ class LoginController extends Controller
      */
     public function login(Request $request)
     {
-        if (Auth::check()) {
-            return redirect()->route('dashboard');
-        }
+        // if (Auth::check()) {
+        //     return redirect()->route('dashboard');
+        // }
         
         return view('backend.auth.login');
     }
@@ -29,13 +29,16 @@ class LoginController extends Controller
      */
     public function postLogin(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        if(Auth::attempt($credentials, $request->get('remember')))
+        $login = $request->only('email', 'password');
+        if(Auth::attempt($login))
         {
             return redirect()->route('home.index');
         }
+        else{
+            echo "Đăng nhập thất bại";
+        }
         
-        return redirect()->back()->withInput()->withErrors(['password' => __('message.login.error')]);
+       
     }
     
     /**

@@ -20,12 +20,3 @@
 <!-- common -->
 <script src="{{ asset('backend/js/common.js') }}"></script>
 <!-- display mess -->
-<script>
-    var config = {!! json_encode($config, JSON_HEX_TAG) !!};
-    var urlUpdateNotification = '{{ route('backend.notification.update', [], false) }}';
-    var urlListNotification = '{{ route('backend.notification.index', [], false) }}';
-    toastr.options = {
-        "closeButton" : true,
-        "progressBar" : true
-    };
-</script>
