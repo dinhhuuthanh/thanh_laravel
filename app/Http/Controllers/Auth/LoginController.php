@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\LoginRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class LoginController extends Controller
      * @param Request $request
      * @return redirect
      */
-    public function postLogin(Request $request)
+    public function postLogin(LoginRequest $request)
     {
         $login = $request->only('email', 'password');
         if(Auth::attempt($login))
@@ -35,7 +36,7 @@ class LoginController extends Controller
             return redirect()->route('home.index');
         }
         else{
-            echo "Đăng nhập thất bại";
+            return redirect()->back()->with('false_login', 'Email hoặc Password không chính xác');
         }
         
        
