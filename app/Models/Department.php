@@ -18,4 +18,9 @@ class Department extends Model
         'name',
         'description',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\Department');
+    }
 }

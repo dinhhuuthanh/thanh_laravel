@@ -1,25 +1,86 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\DB;
 
-
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index(){
-        $users=DB::table('users')->get();
-        return view('backend.user.index',compact('users'));
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        $users = User::all();
+        return view('backend.user.index', compact('users'));
     }
 
-    public function detail($id){
-        
-        $user = DB::table('users')->find($id);
-      
-        if (empty($user)) {
-            return view('error404');
-        } else return view('backend.user.detail', compact('user'));
-        // return view('backend.user.detail');
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function show(User $user)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function edit(User $user)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, User $user)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\User  $user
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy(User $user)
+    {
+        //
     }
 }

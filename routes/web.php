@@ -39,7 +39,7 @@ Route::prefix('departments')->group(function () {
     Route::get('/', [DepartmentController::class, 'index'])->name('department.index');
     Route::get('/create', [DepartmentController::class, 'create'])->name('department.create');
     Route::post('/create', [DepartmentController::class, 'create'])->name('department1.create');
-    Route::get('/detail/{id}', [DepartmentController::class, 'detail'])->name('department.detail');
+    Route::get('/detail/{id}', [DepartmentController::class, 'show'])->name('department.detail');
     Route::get('/edit', [DepartmentController::class, 'edit'])->name('department.edit');
     Route::get('/delete', [DepartmentController::class, 'delete'])->name('department.delete');
 
